@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import './ProductListing.css'
-import { ProductCard } from '../../components/ProductCard/ProductCard'
+import { ProductCard , Nav , Filter } from '../../components/index'
 import { useProduct } from '../../context/product-context'
 import { sortByPriceFunc , sortByRatingFunc , sortByCategoryFunc , priceRangeFilter } from '../../utilities/index'
-import { Nav } from '../../components/Nav/Nav'
-import { Filter } from '../../components/Filter/Filter'
 
 function ProductListing() {
     const {state:{products, sortByPrice,sortByRating,sortByCategory,priceRange},dispatch} = useProduct()

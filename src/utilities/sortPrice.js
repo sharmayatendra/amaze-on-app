@@ -1,5 +1,4 @@
 const sortByPriceFunc = (productList,sortByPrice) => {
-    // console.log(productList,sortByPrice);
     switch(sortByPrice) {
         case "Low-To-High":
             return [...productList].sort((item1,item2) => item1.discountedPrice - item2.discountedPrice);

@@ -1,5 +1,4 @@
 const productReducer = (state,action) => {
-    // console.log(action.type,action.payload);
     switch(action.type) {
         case "LOAD-PRODUCTS":
             return {...state , products: action.payload}
