@@ -13,11 +13,10 @@ useEffect(() => {
 (async function fetchCategories() {
 try{
 const resp = await axios.get("/api/categories")
-console.log(resp);
 setCategories(resp.data.categories)
 }
 catch(err) {
-console.log(err);
+alert("error from server",err)
 }
 })()
 },[])
@@ -36,7 +35,7 @@ return (
 
             {categories.map(item => {
             return(
-            <div className="card card-home">
+            <div className="card card-home" key={item._id}>
                 <div className="card-img">
                     <img src={item.img} alt="mobile" id='home-img' />
                 </div>

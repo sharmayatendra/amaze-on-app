@@ -1,10 +1,11 @@
 import React from 'react'
-import {Homepage} from './pages/Homepage/Homepage'
-import { ProductListing } from './pages/ProductListing/ProductListing'
-import { Cart } from './pages/Cart/Cart'
-import { Wishlist } from './pages/Wishlist/Wishlist'
-import { Login } from './pages/Login/Login'
-import { Signup } from './pages/Signup/Signup'
+// import {Homepage} from './pages/Homepage/Homepage'
+// import { ProductListing } from './pages/ProductListing/ProductListing'
+// import { Cart } from './pages/Cart/Cart'
+// import { Wishlist } from './pages/Wishlist/Wishlist'
+// import { Login } from './pages/Login/Login'
+// import { Signup } from './pages/Signup/Signup'
+import { Homepage, ProductListing, Cart, Wishlist, Login, Signup } from './pages/index'
 import Mockman from "mockman-js"
 import { Routes , Route } from "react-router-dom"
 const App = () => {
