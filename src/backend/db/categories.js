@@ -8,20 +8,29 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "fiction",
+    categoryName: "Laptop",
     description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+      "Checkout the exciting range of laptops to stay updated with the latest technology",
+    heading: "Exclusive sale",
+    subHeading: "up to 20% off",
+    img: "https://cdn.mos.cms.futurecdn.net/uWjEogFLUTBc8mSvagdiuP.jpg"
   },
   {
     _id: uuid(),
-    categoryName: "non-fiction",
+   categoryName: "Mobile",
     description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+      "Checkout the exciting range of mobile to stay updated with the latest technology",
+    heading: "Exclusive sale",
+    subHeading: "up to 20% off",
+    img: "https://oasis.opstatics.com/content/dam/oasis/page/2021/operation/1217/homepage/mo/02-OnePlus-9.jpg"
   },
   {
     _id: uuid(),
-    categoryName: "horror",
+    categoryName: "Premium",
     description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+      "Checkout the exciting range of premium products to stay updated with the latest technology & trend",
+    heading: "Exclusive sale",
+    subHeading: "up to 20% off",
+    img: "https://www.gizbot.com/images/2020-04/apple-iphone-12-concept_158711095630.jpg"
   },
 ];
