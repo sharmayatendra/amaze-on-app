@@ -7,8 +7,7 @@ body {
     background-color: var(--body-bgcolor);
 }
 
-.container-product {
-    background-color: var(--bg-color);
+.container {
     display: grid;
     gap: 1.25rem;
     grid-template-columns: repeat(5,1fr);
@@ -23,4 +22,40 @@ body {
     padding: 0.8rem;
     background-color: var(--bg-color);
     margin: 5rem 1rem 1rem 0;
+}
+
+.card {
+    width: 18rem;
+    margin-top: 0;
+    border-radius: 5px;
+    min-width: none;
+}
+
+.main-card-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card-img > img {
+    aspect-ratio: 5/3;
+}
+
+.main-section > h2 {
+    margin-bottom: 1rem;
+}
+
+.card-btn {
+    margin-bottom: 4px;
+    margin-right: 4px;
+    font-size: 1.1em;
+}
+
+.card-footer {
+    margin-bottom: 4px;
+}
+
+.dismiss-btn {
+    cursor: pointer;
 }
