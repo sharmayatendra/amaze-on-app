@@ -1,10 +1,7 @@
 const sortByCategoryFunc = (productList,sortByCategory) => {
-    if(sortByCategory.mobile) {
-        return productList.filter(item => item.categoryName === "mobile")
-    } else if(sortByCategory.laptop) {
-        return productList.filter(item => item.categoryName === "laptop")
-    }
-    return productList
+if (Object.values(sortByCategory).every((current) => !current))
+    return productList;
+  return productList.filter((product) => sortByCategory[product.categoryName]);
 }
 
 export { sortByCategoryFunc }
