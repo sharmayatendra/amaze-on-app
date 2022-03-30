@@ -1,8 +1,10 @@
 import React from 'react'
+import { useCart } from '../../context/cart-context'
+import { Link } from 'react-router-dom'
 import "./ProductCard.css"
+function ProductCard({product , addToCart}) {
 
-function ProductCard({product}) {
-
+    const { cartItems } = useCart()
 return (
     <>
      <div className="card">
@@ -19,15 +21,15 @@ return (
                 <div className="rating">{product.rating}<i className="far fa-star star-icon"></i></div>
                 <div className="price-container">
                     <h2>₹{product.discountedPrice}</h2>
-                    <p className="strike-price">{product.originalPrice}</p>
-                    <p className="discount">{product.discount} off</p>
+                    <p className="strike-price">₹{product.originalPrice}</p>
+                    <p className="discount">{product.discount}% off</p>
                 </div>
             </div>
         </div>
         <footer className="card-footer">
-            <div className="card-footer-btn">
-                <button className="card-btn">Add to Cart</button>
-                <button className="card-btn">Buy Now</button>
+            <div className="card-footer-btn add-cart">
+                {cartItems.find(ele => ele._id === product._id) ?<Link to="/cart"><button className="card-btn">Go to Cart</button></Link> : <button className="card-btn" onClick={addToCart} >Add to Cart</button>}
+                {/* <button className="card-btn">Buy Now</button> */}
             </div>
         </footer>
     </div> 
