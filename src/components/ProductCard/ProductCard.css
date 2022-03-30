@@ -1,0 +1,61 @@
+:root {
+    --bg-color: rgb(255, 255, 255);
+    --body-bgcolor: rgb(230, 230, 230);
+}
+
+body {
+    background-color: var(--body-bgcolor);
+}
+
+.container {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-areas: 
+    "header header header header header"
+    "sidebar main  main   main   main"
+    "sidebar main  main   main   main";
+}
+
+.main-section {
+    grid-area: main;
+    padding: 0.8rem;
+    background-color: var(--bg-color);
+    margin: 5rem 1rem 1rem 0;
+}
+
+.card {
+    width: 18rem;
+    margin-top: 0;
+    border-radius: 5px;
+    min-width: none;
+}
+
+.main-card-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.card-img > img {
+    aspect-ratio: 5/3;
+}
+
+.main-section > h2 {
+    margin-bottom: 1rem;
+}
+
+.card-btn {
+    margin-bottom: 4px;
+    margin-right: 4px;
+    font-size: 1.1em;
+}
+
+.card-footer {
+    margin-bottom: 4px;
+}
+
+.dismiss-btn {
+    cursor: pointer;
+}

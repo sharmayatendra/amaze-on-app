@@ -1,0 +1,125 @@
+:root {
+    --bg-color: rgb(255, 255, 255);
+    --body-bgcolor: rgb(230, 230, 230);
+}
+
+body {
+    background-color: var(--body-bgcolor);
+}
+
+.container-homepage {
+    background-color: var(--bg-color);
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-areas:
+        "header header header header header  header header"
+        ".      section section section section  section   ."
+        ".      main    main    main    main     main   ."
+        ".      main    main    main    main    main    ."
+        ".      main    main    main    main    main     ."
+        ".      article  article  article  article article    .";
+}
+
+.homepage-section {
+    margin-top: 4rem;
+    grid-area: section;
+}
+
+.homepage-heading {
+    margin: 1rem 0 1.5rem 0;
+    font-size: 2rem;
+}
+
+.homepage-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem
+}
+
+.homepage-main {
+    grid-area: main;
+}
+
+.laptop-container {
+    display: flex;
+    gap: 2rem;
+}
+
+.main-container {
+    width: 100%;
+    min-width: 30%;
+    /* background-color: var(--bg-color); */
+    border: 1px solid var(--primary-color);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.main-container>img {
+    width: 100%;
+}
+
+.article-container {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    grid-area: article;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.article-card {
+    display: flex;
+    background-color: var(--body-bgcolor);
+    padding: 1rem;
+    gap: 1rem;
+    width: 50%;
+    border-radius: 4px;
+}
+
+.card-description>* {
+    margin: 0.5rem 0;
+}
+
+.card-description>h2 {
+    color: var(--primary-color);
+}
+
+.card-description>p {
+    color: black;
+}
+
+.card.card-home {
+    background-color: var(--bg-color);
+    width: 10rem;
+    margin-top: 0;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+#home-img {
+    aspect-ratio: 1/1;
+}
+
+.article-card-img {
+    display: flex;
+    width: 18rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.explore-btn {
+    margin: 1.5rem 0 0 2rem;
+}
+
+.card-img>img {
+    aspect-ratio: 1/1;
+}
+
+.hero-img {
+    margin-bottom: 4rem;
+}
+
+.hero-img>.homepage-img {
+    width: 100%;
+}
