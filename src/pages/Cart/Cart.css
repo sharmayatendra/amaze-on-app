@@ -1,0 +1,31 @@
+:root {
+    --bg-color: rgb(255, 255, 255);
+    --body-bgcolor: rgb(230, 230, 230);
+    --quantity-color: rgb(65, 64, 64);
+    --border-color: rgb(128, 128, 128);
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+.container-cart {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-areas:
+        "header header header header header"
+        ".       main   main   main   . ";
+}
+
+.main-cart-section {
+    padding: 0 2rem;
+    grid-area: main;
+    margin: 4rem 1rem 0 1rem;
+    background-color: var(--bg-color);
+}
+
+.main-cart-section>h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
