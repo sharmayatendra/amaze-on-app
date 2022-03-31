@@ -2,16 +2,19 @@ import React from 'react'
 import { useCart } from '../../context/cart-context'
 import { Link } from 'react-router-dom'
 import "./ProductCard.css"
-function ProductCard({product , addToCart}) {
+import { useAuth, useWishlist } from '../../context'
+function ProductCard({product , addToCart , addToWishlist , removeFromWishlist}) {
 
+    const {state: {token}} = useAuth()
     const { cartItems } = useCart()
+    const { wishlistItems , setWishlistItems} = useWishlist()
 return (
     <>
      <div className="card">
         <div className="card-wrapper">
             <div className="card-img img-rel">
                 <img src={product.img} alt="mobile" />
-                <i className="fas fa-heart dismiss-btn"></i>
+                {wishlistItems.find(ele => ele.id === product.id) ? <i className="fas fa-heart dismiss-btn wishlist-icon-clr" onClick={() => removeFromWishlist(product._id , token , setWishlistItems)}></i> : <i className="fas fa-heart dismiss-btn" onClick={addToWishlist}></i>}
             </div>
             <div className="card-heading-wrapper">
                 <h2 className="card-main-heading">{product.title}</h2>

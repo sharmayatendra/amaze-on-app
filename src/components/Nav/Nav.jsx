@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useWishlist } from '../../context'
 import { useCart } from '../../context/cart-context'
 import "./Nav.css"
 
 function Nav() {
 
   const {cartItems} = useCart()
+  const {wishlistItems} = useWishlist()
 return (
 <header className="header">
   <div className="header-left-icons">
@@ -22,7 +24,7 @@ return (
       </div>
       <div className="badge-container">
         <Link to="/wishlist"><span className="material-icons-outlined icon-small">favorite_border</span></Link>
-        <span className="badge icon-badge">0</span>
+        <span className="badge icon-badge">{wishlistItems.length}</span>
       </div>
     </div>
   </div>
