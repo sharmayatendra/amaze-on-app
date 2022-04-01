@@ -1,0 +1,34 @@
+:root {
+    --bg-color: rgb(255, 255, 255);
+    --body-bgcolor: rgb(230, 230, 230);
+}
+
+body {
+    background-color: var(--body-bgcolor);
+}
+
+.container-wishlist {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main";
+}
+
+.wishlist-container {
+    grid-area: main;
+    background-color: var(--bg-color);
+    margin: 6rem 1rem 0 1rem;
+}
+
+.wishlist-container>h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.wishlist-card-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}

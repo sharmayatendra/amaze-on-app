@@ -1,6 +1,14 @@
 import React from 'react'
+import { useNavigate , Link} from 'react-router-dom'
+import { useAuth, useWishlist } from '../../context'
 import "./CartCard.css"
-function CartCard({product , cartQuantityHandler , cartRemoveHandler }) {
+
+function CartCard({product , cartQuantityHandler , cartRemoveHandler , wishlistHandler}) {
+    
+    const {state:{token}} = useAuth()
+    const {wishlistItems,setWishlistItems} = useWishlist()
+    const navigate = useNavigate()
+
 return (
 <div className="card cart-card">
     <div className="card-wrapper">
@@ -35,8 +43,10 @@ return (
     </div>
     <footer className="card-footer">
         <div className="card-footer-btn">
-            <button className="card-btn" onClick={() => cartRemoveHandler(product._id)}>Remove from Cart</button>
-            <button className="card-btn"> Wishlist</button>
+            <button className="card-btn cart-card-btn" onClick={() => cartRemoveHandler(product._id)}>Remove from Cart</button>
+
+            {wishlistItems.find(ele => ele._id === product._id) ? <Link to="/wishlist"><button className="card-btn cart-card-btn red-btn">Go to Wishlist</button></Link>: <button className="card-btn cart-card-btn" onClick={() => wishlistHandler(product , token , setWishlistItems , navigate)}>Add to Wishlist</button>}
+            
         </div>
     </footer>
 </div>

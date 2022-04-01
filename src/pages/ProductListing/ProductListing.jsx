@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 import './ProductListing.css'
 import { ProductCard , Nav , Filter } from '../../components/index'
-import { useProduct , useCart , useAuth } from '../../context/index'
+import { useProduct , useCart , useAuth , useWishlist , removeFromWishlistHandler , addToWishlistHandler} from '../../context/index'
 import { sortByPriceFunc , sortByRatingFunc , sortByCategoryFunc , priceRangeFilter } from '../../utilities/index'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,6 +11,7 @@ function ProductListing() {
 
     const navigate = useNavigate()
     const {setCartItems} = useCart()
+    const {setWishlistItems} = useWishlist()
     const {state:{token}} = useAuth()
     useEffect(() => {
         (async function fetchProducts() {
@@ -51,6 +52,12 @@ function ProductListing() {
         
     }
 
+   
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+    },[])
+
   return (
     <div className='container-product'> 
     <Nav />
@@ -58,7 +65,7 @@ function ProductListing() {
     <section className="main-section">
         <h2>Showing all products</h2>
         <div className="main-card-section">
-    {filteredPriceProducts.map(item => <ProductCard product={item} key={item._id} addToCart={() => addToCartHandler(item)}/>)}
+    {filteredPriceProducts.map(item => <ProductCard product={item} key={item._id} addToCart={() => addToCartHandler(item)} addToWishlist={() => addToWishlistHandler(item , token , setWishlistItems , navigate)} removeFromWishlist={removeFromWishlistHandler}/>)}
     </div>
     </section>
     </div>
