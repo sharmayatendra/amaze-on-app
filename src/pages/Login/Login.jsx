@@ -66,7 +66,7 @@ function Login() {
                 <button className="btn btn-primary-solid login-btn" onClick={loginFormHandler}>Login</button>
                 <button className="btn btn-primary-solid login-btn" onClick={loginTestHandler}>Login with Test Credentials</button>
                 <div className="create-account-container">
-                    <Link to="#">Create an account</Link>
+                    <Link to="/signup">Create an account</Link>
                     <span className="material-icons-outlined right-icon">
                         chevron_right
                     </span>
