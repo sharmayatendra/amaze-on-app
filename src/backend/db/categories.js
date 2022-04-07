@@ -24,13 +24,4 @@ export const categories = [
     subHeading: "up to 20% off",
     img: "https://oasis.opstatics.com/content/dam/oasis/page/2021/operation/1217/homepage/mo/02-OnePlus-9.jpg"
   },
-  {
-    _id: uuid(),
-    categoryName: "Premium",
-    description:
-      "Checkout the exciting range of premium products to stay updated with the latest technology & trend",
-    heading: "Exclusive sale",
-    subHeading: "up to 20% off",
-    img: "https://www.gizbot.com/images/2020-04/apple-iphone-12-concept_158711095630.jpg"
-  },
 ];

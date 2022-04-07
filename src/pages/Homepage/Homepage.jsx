@@ -4,9 +4,11 @@ import axios from "axios"
 import OnePlus from "../../images/OnePlus.jpg"
 import {Nav} from "../../components/Nav/Nav"
 import { Link } from "react-router-dom"
+import { useProduct } from '../../context'
 
 function Homepage() {
 
+const { dispatch } = useProduct()
 const [categories,setCategories] = useState([]);
 
 useEffect(() => {
@@ -20,7 +22,14 @@ alert("error from server",err)
 }
 })()
 },[])
+
+const navigateToProductListing = (categoryName) => {
+    dispatch({type: "CLEAR"})
+    dispatch({type: categoryName.toUpperCase()})
+    
+}
 return (
+
 
 <div className="container-homepage">
     <Nav />
@@ -30,11 +39,13 @@ return (
             <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/katariy/BAU/OP_Dec/D24582943_IN_WL_Category_Page_1500x400.gif"
                 alt="hero-img" className='homepage-img' />
         </div>
-        <Link to="/product">
+        {/* <Link to="/product"> */}
         <div className="homepage-container">
 
             {categories.map(item => {
             return(
+                <>
+                <Link to="/product" onClick={() =>navigateToProductListing(item.categoryName)}>
             <div className="card card-home" key={item._id}>
                 <div className="card-img">
                     <img src={item.img} alt="mobile" id='home-img' />
@@ -45,10 +56,12 @@ return (
                     <h1>{item.categoryName}</h1>
                 </div>
             </div>
+            </Link>
+            </>
             )
             })}
         </div>
-        </Link>
+        {/* </Link> */}
     </section>
 
     <article className="article-container">
