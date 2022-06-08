@@ -48,6 +48,8 @@ function Filter() {
                         </li>
                         <li className="list-item"><label htmlFor="HTL"><input type="radio" id="HTL" className="radio-input" name="sortby" checked={sortByPrice === "High-To-Low"} onChange={() => dispatch({type: "SORT-PRICE" , payload: "High-To-Low"})}/>Price: High to Low</label>
                         </li>
+                        <li className="list-item"><label htmlFor="REL"><input type="radio" id="REL" className="radio-input" name="sortby" checked={sortByPrice === "RELEVANCE"} onChange={() => dispatch({type: "SORT-PRICE" , payload: "RELEVANCE"})}/>Relevance</label>
+                        </li>
                     </ul>
                 </div>
             </div>

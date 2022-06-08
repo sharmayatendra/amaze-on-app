@@ -1,13 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useWishlist } from '../../context'
+import { useAuth, useWishlist } from '../../context'
 import { useCart } from '../../context/cart-context'
 import "./Nav.css"
 
 function Nav() {
+  const {state: {isAuth} , dispatch} = useAuth()
 
   const {cartItems} = useCart()
   const {wishlistItems} = useWishlist()
+
+  const logoutHandler = () => {
+    localStorage.clear()
+    dispatch({type: 'CLEAR'})
+  }
 return (
 <header className="header">
   <div className="header-left-icons">
@@ -16,7 +22,7 @@ return (
     </Link>
   </div>
   <div className="header-right-icons">
-    <Link to="/login"><button className="btn btn-primary-solid header-btn">Login</button></Link>
+    {isAuth ? <Link to="/login"><button className="btn btn-primary-solid header-btn" onClick={logoutHandler}>Logout</button></Link>:<Link to="/login"><button className="btn btn-primary-solid header-btn">Login</button></Link>}
     <div className="badge-flex-container">
       <div className="badge-container">
         <Link to="/cart"><span className="material-icons-outlined icon-small">shopping_cart</span></Link>

@@ -3,8 +3,10 @@ import { authReducer } from "../reducer/auth-reducer";
 const AuthContext = createContext()
 
 const AuthProvider = ({children}) => {
+    const tokenDetails = localStorage.getItem('token') || '';
     const [state,dispatch] = useReducer(authReducer,{
-        token: "" ,
+        token: tokenDetails ,
+        isAuth: !!tokenDetails,
         user: ""
     })
     
