@@ -9,3 +9,7 @@ input[type="text"] {
 .signup-btn {
     margin: 8px 0;
 }
+
+.danger-text {
+    color: red;
+}
