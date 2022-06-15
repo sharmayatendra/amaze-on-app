@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { toast } from "react-toastify"
 import { Nav, WishlistCard } from "../../components/index" 
 import { useAuth, useWishlist , useCart , removeFromWishlistHandler} from '../../context'
 import "./Wishlist.css"
@@ -14,7 +15,7 @@ function Wishlist() {
       const resp = await axios.post('/api/user/cart' , { product } , {
         headers: { authorization: token}
       })
-      console.log(resp);
+      toast.success("Item added to cart")
       setCartItems(resp.data.cart)
     } catch(err) {
       console.log(err);

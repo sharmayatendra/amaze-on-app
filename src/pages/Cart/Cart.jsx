@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './Cart.css'
+import { toast } from "react-toastify"
 import { Nav , CartCard , PriceCard} from '../../components/index'
 import { useCart , useAuth , addToWishlistHandler } from '../../context/index'
 function Cart() {
@@ -15,7 +16,7 @@ function Cart() {
         type: updatetype
   }
       } , { headers : {authorization : token}})
-      console.log(resp);
+      toast.info("Cart quantity updated")
       setCartItems(resp.data.cart)
     } catch(err) {
       console.log(err);
@@ -27,6 +28,7 @@ function Cart() {
       const resp = await axios.delete(`api/user/cart/${productId}` , {
         headers: {authorization : token}
       })
+      toast.success("Item remove from cart")
       setCartItems(resp.data.cart)
     } catch(err) {
       console.log(err);

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from 'axios'
 import './ProductListing.css'
+import { toast } from "react-toastify"
 import { ProductCard , Nav , Filter } from '../../components/index'
 import { useProduct , useCart , useAuth , useWishlist , removeFromWishlistHandler , addToWishlistHandler} from '../../context/index'
 import { sortByPriceFunc , sortByRatingFunc , sortByCategoryFunc , priceRangeFilter } from '../../utilities/index'
@@ -42,6 +43,7 @@ function ProductListing() {
                     authorization: token
                 }
             })
+            toast.success("item added to cart")
             setCartItems(resp.data.cart)
         } catch(err) {
             console.log(err);

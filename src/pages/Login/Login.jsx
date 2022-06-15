@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Nav } from '../../components/index'
 import axios from 'axios';
 import "./Login.css"
+import { toast } from 'react-toastify'
 import { useAuth } from '../../context/auth-context';
 import { Link , useNavigate} from "react-router-dom"
 
@@ -17,6 +18,7 @@ function Login() {
                 email: email,
                 password: password
             })
+            toast.success("Loggedin successfully")
             if(resp.status === 200) {
                 localStorage.setItem("token" , resp.data.encodedToken)
                 localStorage.setItem("user" , JSON.stringify(resp.data.foundUser))
@@ -35,6 +37,7 @@ function Login() {
                 email: "yatendra@gmail.com",
                 password: "yatendra"
             })
+            toast.success("Loggedin successfully")
             if(resp.status === 200) {
                 localStorage.setItem("token" , resp.data.encodedToken)
                 localStorage.setItem("user" , JSON.stringify(resp.data.foundUser))

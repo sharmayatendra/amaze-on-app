@@ -1,5 +1,6 @@
 import { createContext , useContext , useState} from 'react'
 import axios from 'axios'
+import { toast } from "react-toastify"
 const WishlistContext = createContext()
 
 
@@ -19,7 +20,7 @@ const removeFromWishlistHandler = async (productId , token , setWishlistItems) =
       const resp = await axios.delete(`/api/user/wishlist/${productId}` , {
         headers: { authorization: token}
       })
-      console.log(resp);
+      toast.info("Item removed from wishlist")
       setWishlistItems(resp.data.wishlist)
     } catch(err) {
       console.log(err);
@@ -33,7 +34,7 @@ const removeFromWishlistHandler = async (productId , token , setWishlistItems) =
             const resp = await axios.post('/api/user/wishlist' , { product } , {
                 headers: { authorization : token}
             })
-            console.log(resp);
+            toast.success("Item added to wishlist")
             setWishlistItems(resp.data.wishlist)
         } catch(err) {
             console.log(err);

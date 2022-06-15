@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from "react-toastify"
 import { useAuth, useWishlist } from '../../context'
 import { useCart } from '../../context/cart-context'
 import "./Nav.css"
@@ -12,6 +13,7 @@ function Nav() {
 
   const logoutHandler = () => {
     localStorage.clear()
+    toast.success("Loggedout successfully")
     dispatch({type: 'CLEAR'})
   }
 return (

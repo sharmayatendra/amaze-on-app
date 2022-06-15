@@ -1,5 +1,6 @@
 import React from 'react'
 import { useAuth, useCart, useWishlist } from '../../context'
+import { toast } from "react-toastify"
 import "./WishlistCard.css"
 import axios from 'axios'
 
@@ -15,7 +16,7 @@ function WishlistCard({product , moveToCart , removeFromWishlist}) {
             type: updatetype
       }
           } , { headers : {authorization : token}})
-          console.log(resp);
+          toast.success("Item added to cart")
           setCartItems(resp.data.cart)
         } catch(err) {
           console.log(err);

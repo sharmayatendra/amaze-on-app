@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Nav } from '../../components/index'
 import { Link, useNavigate } from 'react-router-dom'
+import { toast } from "react-toastify"
 import axios from "axios"
 import './Signup.css'
 import { useAuth } from '../../context'
@@ -20,6 +21,7 @@ function Signup() {
                 const resp = await axios.post("/api/auth/signup" , {
                     email , password , firstName , lastName
                 })
+                toast.success("Signup successfully")
                 localStorage.setItem('token' , resp.data.encodedToken)
                 localStorage.setItem('user' , JSON.stringify(resp.data.createdUser))
                 dispatch({type: "TOKEN-ADD" , payload: {token: resp.data.encodedToken, user:resp.data.createdUser}})
@@ -27,6 +29,8 @@ function Signup() {
             }catch(err) {
                 console.log(err);
             }
+        }else {
+            toast.info("Please fill all the fields")
         }
     }
 
