@@ -28,11 +28,11 @@ return (
     <div className="badge-flex-container">
       <div className="badge-container">
         <Link to="/cart"><span className="material-icons-outlined icon-small">shopping_cart</span></Link>
-        <span className="badge icon-badge">{cartItems.length}</span>
+        {isAuth ? <span className="badge icon-badge">{cartItems.length}</span> : ""}
       </div>
       <div className="badge-container">
         <Link to="/wishlist"><span className="material-icons-outlined icon-small">favorite_border</span></Link>
-        <span className="badge icon-badge">{wishlistItems.length}</span>
+        {isAuth ? <span className="badge icon-badge">{wishlistItems.length}</span> : ""}
       </div>
     </div>
   </div>
